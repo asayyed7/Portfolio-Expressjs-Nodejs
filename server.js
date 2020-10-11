@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 app.set("view engine","ejs");
@@ -23,6 +24,7 @@ app.get("/skills", function(req, res){
 app.get("/teams", function(req, res){
     res.render("teams");
 });
-app.listen(3000, function(){
-    console.log("server running at 3000");
+const port = process.env.PORT||3000;
+app.listen(port, function(){
+    console.log("server running at " + port);
 });
